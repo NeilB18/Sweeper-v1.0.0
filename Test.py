@@ -19,7 +19,7 @@ mixer.init()
 
 screen = pygame.display.set_mode((1000,600))
 pygame.display.set_icon(pygame.image.load("Assets/images/Cleaner game icon.png"))
-pygame.display.set_caption("Cleaner")
+pygame.display.set_caption("Sweeper")
 def show_text():
     
     score_P1 = font.render(f"{player_1.name}: {str(int(player_1.radius))}",True,(0,0,139))

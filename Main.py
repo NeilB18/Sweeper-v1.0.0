@@ -15,8 +15,11 @@ mixer.init()
 
 
 screen = pygame.display.set_mode((1000,600))
-pygame.display.set_icon(pygame.image.load("Assets/images/Cleaner game icon.png"))
-pygame.display.set_caption("Cleaner")
+pygame.display.set_icon(pygame.image.load("Assets/images/icon_1.png"))
+pygame.display.set_caption("Sweeper")
+
+
+
 def show_text():
     
     score_P1 = font.render(f"{player_1.name}: {str(int(player_1.radius))}",True,(0,0,139))
@@ -116,15 +119,20 @@ while running:
             dot_x_list[j] = rt(0,1000)
             dot_y_list[j] = rt(0,600)
             player_1.radius+=0.1
+            pop_sound = mixer.Sound('pop.mp3')
+            pop_sound.play()
             
         if check_collision(player_2.radius,dot_x_list[j],dot_y_list[j],player_2.x,player_2.y):
             dot_x_list[j] = rt(0,1000)
             dot_y_list[j] = rt(0,600)
             player_2.radius+=0.1          
-
+            pop_sound = mixer.Sound('pop.mp3')
+            pop_sound.play()
         if winner_declared is True:
             dot_y_list[j]+=dot_vel_list[j]
             game_over = True
+
+
 
         pygame.draw.circle(screen,dot_color_list[j],(dot_x_list[j],dot_y_list[j]),dot_radius_list[j])
 

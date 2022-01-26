@@ -5,7 +5,6 @@ import pygame
 from Functions import draw
 from random import choice,randrange,randint
 
-from Functions import draw
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 

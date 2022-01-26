@@ -6,8 +6,8 @@ from pygame import mixer
 pygame.init()
 mixer.init()
 screen = pygame.display.set_mode((1000,600))
-pygame.display.set_icon(pygame.image.load("Assets/images/Cleaner game icon.png"))
-pygame.display.set_caption("Cleaner")
+pygame.display.set_icon(pygame.image.load("Assets/images/icon_1.png"))
+pygame.display.set_caption("Sweeper")
 mouse_click = False
 def check_if_clicked():
     global mouse_click
@@ -32,6 +32,8 @@ def run_menu():
     start_button = pygame.image.load("Assets/images/start_button.png")
     start_button_2 = pygame.image.load("Assets/images/start_button_2.png")
 
+    exit_button = pygame.image.load("Assets/images/Exit_1.png")
+    exit_button.set_colorkey((0,0,0))
     fullscreen = False
 
     for i in range(1000):
@@ -43,12 +45,12 @@ def run_menu():
 
 
     button_1 = pygame.Rect(400,275,200,50)
-
-    option= pygame.image.load("Assets/images/options.png")
-    option_2 = pygame.image.load("Assets/images/options_2.png")
+    button_2 = pygame.Rect(400,335,220,50)
 
     mixer.music.load("Menu_music_1.mp3")
+
     mixer.music.play(-1,0.0)
+
     while running_1:
         
         
@@ -82,14 +84,28 @@ def run_menu():
 
         
         screen.blit(start_button,(400,275))
+        screen.blit(exit_button,(400,335))
 
 
         if button_1.collidepoint((mouse_x,mouse_y)):
             screen.blit(start_button_2,(400,275))
+
             if check_if_clicked():
+                click_sound = mixer.Sound('click.wav')
+                click_sound.play()
                 running_1 = False
+        if button_2.collidepoint((mouse_x,mouse_y)):
+            screen.blit(exit_button,(400,335))
+
+            
+            if check_if_clicked():
+                click_sound = mixer.Sound('click.wav')
+                click_sound.play()
+                
+                
+                sys.exit()
         # screen.blit(option,(510,275))
-        # button_2.make_short_cut(print(""),mouse_x,mouse_y,option_2,screen,510,275)
+        # 
         
        
 
