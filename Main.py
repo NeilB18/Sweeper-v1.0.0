@@ -24,10 +24,13 @@ def show_text():
     
     score_P1 = font.render(f"{player_1.name}: {str(int(player_1.radius))}",True,(0,0,139))
     score_P2 = font.render(f"{player_2.name}: {str(int(player_2.radius))}",True,(139,0,0))
+    fps = font.render(f"{str(int(clock.get_fps()))}", True, (pygame.Color('brown')))
     
-    screen.blit(score_P1,(10,10))
+    screen.blit(score_P1,(300,10))
    
-    screen.blit(score_P2,(850,10))
+    screen.blit(score_P2,(550,10))
+
+    screen.blit(fps,(10,10))
 
 def show_winner(winner_name):
     game_over_text = big_font.render(f"{winner_name} Wins",winner_declared,(rt(0,230),rt(0,230),rt(0,230)))
@@ -97,6 +100,7 @@ while running:
     mouse_x,mouse_y = pygame.mouse.get_pos()
     dot_x,dot_y = rt(0,1000),rt(0,600)
     screen.fill((255,255,255))
+  
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -121,13 +125,20 @@ while running:
             player_1.radius+=0.1
             pop_sound = mixer.Sound('pop.mp3')
             pop_sound.play()
+        elif player_1.radius>=150:
+            player_1.radius = 150
             
         if check_collision(player_2.radius,dot_x_list[j],dot_y_list[j],player_2.x,player_2.y):
             dot_x_list[j] = rt(0,1000)
             dot_y_list[j] = rt(0,600)
             player_2.radius+=0.1          
             pop_sound = mixer.Sound('pop.mp3')
+
             pop_sound.play()
+        if player_2.radius>=150:
+            player_2.radius = 150
+       
+
         if winner_declared is True:
             dot_y_list[j]+=dot_vel_list[j]
             game_over = True
