@@ -53,9 +53,9 @@ class Player:
             if keys[pygame.K_s]:
                 self.y+=self.vel
                 self.direction = "DOWN"
-            if keys[pygame.K_1]:
-                pass
-            return self.direction
+          
+           
+            self.check_borders()
 
         if self.player_number == 2:
             if keys[pygame.K_LEFT]:
@@ -66,7 +66,8 @@ class Player:
                 self.y-=self.vel
             if keys[pygame.K_DOWN]:
                 self.y+=self.vel 
-        self.check_borders()
+            self.check_borders()
+        
         self.update() 
     
 

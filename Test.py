@@ -6,7 +6,7 @@ from pygame import mixer
 import sys
 from Functions import *
 from player import Player
-from Player_test import Player
+
 from Game_AI import Enemy
 import time
 start_time = time.time()
