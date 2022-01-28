@@ -1,5 +1,8 @@
-import pygame
+import random
 import sys
+
+import pygame
+
 pygame.init()
 
 screen = pygame.display.set_mode((1000,600),pygame.RESIZABLE)
@@ -16,6 +19,8 @@ class Player:
         self.collide = False
         self.fullscreen = False
         self.name = name
+        self.ability = 0
+        self.direction  =  ""
         self.update()
 
 
@@ -38,12 +43,20 @@ class Player:
         if self.player_number == 1:
             if keys[pygame.K_a]:
                 self.x-=self.vel
+                self.direction = "LEFT"
             if keys[pygame.K_d]:
                 self.x+=self.vel
+                self.direction = "RIGHT"
             if keys[pygame.K_w]:
                 self.y-=self.vel
+                self.direction = "UP"
             if keys[pygame.K_s]:
                 self.y+=self.vel
+                self.direction = "DOWN"
+            if keys[pygame.K_1]:
+                pass
+            return self.direction
+
         if self.player_number == 2:
             if keys[pygame.K_LEFT]:
                 self.x-=self.vel

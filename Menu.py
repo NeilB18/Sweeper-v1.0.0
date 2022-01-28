@@ -1,8 +1,11 @@
-import pygame
 import sys
 from random import randint as rt
-import Buttons
+
+import pygame
 from pygame import mixer
+
+from player import Player
+
 pygame.init()
 mixer.init()
 screen = pygame.display.set_mode((1000,600))
@@ -35,6 +38,10 @@ def run_menu():
     exit_button = pygame.image.load("Assets/images/Exit_1.png")
     exit_button.set_colorkey((0,0,0))
     fullscreen = False
+    cursor = pygame.image.load('Assets/images/cursor_1.png')
+    cursor.set_colorkey((255,255,255))
+    cursor = pygame.transform.scale(cursor,(20,20))
+    pygame.mouse.set_visible(False)
 
     for i in range(1000):
         dot_color_list.append((rt(0,250),rt(0,250),rt(0,250)))
@@ -56,6 +63,7 @@ def run_menu():
         
         mouse_x,mouse_y = pygame.mouse.get_pos()
         screen.fill((255,255,255))
+        
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -108,7 +116,7 @@ def run_menu():
         # 
         
        
-
+        screen.blit(cursor,(mouse_x,mouse_y))
 
         pygame.display.update()
 

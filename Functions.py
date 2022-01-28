@@ -9,11 +9,6 @@ screen = pygame.display.set_mode((1000,600))
 def draw(name,x,y):
     screen.blit(name,(x,y))
 
-# def text_input():
-#     while RuntimeWarning
-#     mouse_x,mouse_y = pygame.mouse.get_pos()
-#     if check_if_clicked():
-#         print("")
 
 def check_collision(object_radius,x1,y1,x2,y2):
     

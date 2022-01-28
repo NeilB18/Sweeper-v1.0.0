@@ -6,6 +6,7 @@ from pygame import mixer
 import sys
 from Functions import *
 from player import Player
+from Player_test import Player
 from Game_AI import Enemy
 import time
 start_time = time.time()
@@ -64,7 +65,7 @@ name_2 = "Al Goh"
 game_over = False
 fullscreen = False
 player_1 = Player(name_1,50,50,(0,0,255),10,player_vel,1)
-player_2 = Enemy(1,name_2,950,550,(255,0,0),10,player_2_vel,dot_x_list,dot_y_list)
+player_2 = Player(name_2,950,550,(255,0,0),10,player_2_vel,2)
 
 
 
@@ -115,6 +116,10 @@ while running:
 
     
     for j in range(1000):
+        if player_1.direction == "UP":
+            dot_y_list[j] += player_1.vel
+        if player_1.direction == "DOWN":
+            dot_y_list[j] -=player_1.vel
         if check_collision(player_1.radius,dot_x_list[j],dot_y_list[j],player_1.x,player_1.y):
             dot_x_list[j] = rt(0,1000)
             dot_y_list[j] = rt(0,600)
@@ -168,13 +173,9 @@ while running:
     if game_over is True:
         show_winner(winner)
 
-    pygame.draw.line(screen, (255,0,0), (player_2.x, player_2.y), (player_2.x,player_2.y-200), 1)
+
     pygame.display.update()
     clock.tick(60)
-    player_2.num_of_dots_N_list.clear()
-    player_2.num_of_dots_E_list.clear()
-    player_2.num_of_dots_S_list.clear()
-    player_2.num_of_dots_W_list.clear()
 
 
     
