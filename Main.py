@@ -2,7 +2,6 @@ import os
 import sys
 from math import *
 from random import randint as rt
-from tkinter import Y
 
 import pygame
 from pygame import mixer

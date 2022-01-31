@@ -120,6 +120,7 @@ while running:
             dot_y_list[j] += player_1.vel
         if player_1.direction == "DOWN":
             dot_y_list[j] -=player_1.vel
+       
         if check_collision(player_1.radius,dot_x_list[j],dot_y_list[j],player_1.x,player_1.y):
             dot_x_list[j] = rt(0,1000)
             dot_y_list[j] = rt(0,600)
