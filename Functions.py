@@ -1,7 +1,6 @@
 from math import *
 import pygame
 
-from Menu import check_if_clicked
 
 
 pygame.init()

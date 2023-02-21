@@ -1,11 +1,9 @@
-from pickle import TRUE
 import sys
 from random import randint as rt
 
 import pygame
 from pygame import mixer
 
-from player import Player
 
 pygame.init()
 mixer.init()
