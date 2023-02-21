@@ -21,6 +21,7 @@ class Player:
         self.name = name
         self.ability = 0
         self.direction  =  ""
+ 
         self.update()
 
 

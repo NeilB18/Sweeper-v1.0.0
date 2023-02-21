@@ -101,6 +101,8 @@ mixer.music.play(-1,0.0)
 
 # Main loop
 
+
+
 while running:
     
     mouse_x,mouse_y = pygame.mouse.get_pos()
@@ -151,6 +153,25 @@ while running:
             player_2.radius = 150
        
 
+
+        if player_1.radius >=150:
+            if player_2.radius < 150:
+                winner = player_1.name
+                player_2.collide = True
+                winner_declared = True
+                player_1.x = 1000/2-player_1.radius
+                player_1.y = 600/2-player_1.radius + 70
+                player_1.vel = 0
+    
+        if player_2.radius >=150:
+            if player_1.radius < 150:
+                winner = player_2.name
+                player_1.collide = True
+                winner_declared = True
+                player_2.x = 1000/2-player_1.radius
+                player_2.y = 600/2-player_1.radius + 70
+                player_2.vel =0
+
         if winner_declared is True:
             dot_y_list[j]+=dot_vel_list[j]
             game_over = True
@@ -194,6 +215,10 @@ while running:
 
      
     show_text()
+
+
+
+
 
 
     if game_over is True:
